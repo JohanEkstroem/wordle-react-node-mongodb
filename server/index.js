@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import { fetchRandomWord } from './words.js';
+import { Highscore } from './database.js';
 const app = express();
 const port = 5080;
 
@@ -13,7 +14,16 @@ app.get('/api/word', async (req, res) => {
   res.json({ word });
 });
 
+app.get('/api/highscores', async (req, res) => {
+  const highscores = await Highscore.find();
+  res.json(highscores);
+});
+
 //POST request
-app.post('/highscores', (req, res) => {});
+app.post('/api/highscores', async (req, res) => {
+  const postHighscores = new Highscore(req.body);
+  await postHighscores.save();
+  res.json(postHighscores, 201);
+});
 
 app.listen(port, () => console.log(`Listening to port ${port}`));
