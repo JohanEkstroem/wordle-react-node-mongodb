@@ -1,4 +1,5 @@
 import WordList from './WordList';
+import { v4 as uuidv4 } from 'uuid';
 
 const GameGuesses = ({
   setInputText,
@@ -13,7 +14,7 @@ const GameGuesses = ({
   };
 
   const guessWordElements = guessWord.map((word) => {
-    return <WordList key={word} word={word} correctWord={correctWord} />;
+    return <WordList key={uuidv4()} word={word} correctWord={correctWord} />;
   });
   return (
     <div>
@@ -23,11 +24,8 @@ const GameGuesses = ({
         type="text"
         onChange={(e) => setInputText(e.target.value)}
         value={inputText}
-        autoFocus
-        onFocus={(e) => e.currentTarget.select()}
       />
       <button onClick={handleOnClickGuess}>Guess</button>
-      {/*  <p>correct word is: {correctWord}</p> */}
     </div>
   );
 };

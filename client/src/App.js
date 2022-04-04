@@ -3,36 +3,19 @@ import { useState, useEffect } from 'react';
 import Game from './components/Game';
 
 function App() {
-  const [correctWord, setCorrectWord] = useState('');
-  const [url, setUrl] = useState('http://localhost:5080/api/word');
-  const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      const response = await fetch(url);
-      const body = await response.json();
-      setCorrectWord(body);
-      setIsLoading(false);
-    };
-    fetchData();
-  }, []);
   return (
     <div className="App">
       <h1>Johan Ekström's version of Wordle</h1>
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : (
-        <p>Word is loaded. Have blast with it</p>
-      )}
-      <Game correctWord={correctWord.word} />
+      <Game />
     </div>
   );
 }
 
 export default App;
-
 /* 
-1. Fetch a word from API
-
+Todo:
+1. Add stop watch in Game component.
+2. Only accept input if input is 5 chars long.
+3. Post highscore to server
+4. Style
 */
