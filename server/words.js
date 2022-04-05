@@ -8,6 +8,7 @@ export async function fetchRandomWord(wordLength, unique) {
     const words = await Object.keys(body).filter(
       (word) => word.length == wordLength
     );
+
     const randomIndex = Math.floor(Math.random() * words.length);
 
     const uniqueChars = words.filter(
@@ -15,9 +16,11 @@ export async function fetchRandomWord(wordLength, unique) {
     );
 
     if (unique) {
-      return await uniqueChars[Math.floor(Math.random() * uniqueChars.length)];
+      return await uniqueChars[
+        Math.floor(Math.random() * uniqueChars.length)
+      ].toUpperCase();
     }
-    return await words[randomIndex];
+    return await words[randomIndex].toUpperCase();
   } catch (error) {
     console.log(error);
     return;

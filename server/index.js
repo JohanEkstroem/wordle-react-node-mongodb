@@ -16,8 +16,11 @@ app.use(express.json());
 app.use(cors());
 
 //GET request
-app.get('/api/word', async (req, res) => {
-  const word = await fetchRandomWord();
+
+app.get('/api/word/', async (req, res) => {
+  const unique = req.query.unique === 'true';
+  const wordLength = parseInt(req.query.length);
+  const word = await fetchRandomWord(wordLength, unique);
   res.json({ word });
 });
 
