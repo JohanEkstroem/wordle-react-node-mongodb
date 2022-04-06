@@ -1,5 +1,5 @@
-const WordList = ({ word, correctWord }) => {
-  let a = word.toUpperCase().split('');
+const GuessWordList = ({ guessWord, correctWord }) => {
+  let a = guessWord.toUpperCase().split('');
   let b = correctWord.toUpperCase().split('');
   let temp = [];
   let output = [];
@@ -42,4 +42,4 @@ const WordList = ({ word, correctWord }) => {
   return <li className="list">{guessList}</li>;
 };
 
-export default WordList;
+export default GuessWordList;

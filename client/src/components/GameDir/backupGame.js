@@ -1,18 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import GameConfig from './GameConfig';
-import GameGuesses from './GameGuesses';
+/* import React, { useState, useEffect } from 'react';
+import GameConfig from '../GameConfigDir/GameConfig';
+import GameGuesses from '../GameGuesses';
 import Stopwatch from './Stopwatch';
-
+ */ /* 
 const Game = () => {
-  const [inputText, setInputText] = useState('');
-  const [guessWord, setGuessWord] = useState([]);
-  const [gameState, setGameState] = useState('config');
-  const [charsLength, setCharsLength] = useState(5);
-  const [time, setTime] = useState(0);
-  const [start, setStart] = useState(false);
-  const [correctWord, setCorrectWord] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-
   useEffect(() => {
     const fetchData = async () => {
       const url = 'http://localhost:5080/api/word';
@@ -38,7 +29,7 @@ const Game = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setGameState('play');
+    setGameState('playing');
     setStart(true);
   };
 
@@ -54,7 +45,6 @@ const Game = () => {
   if (gameState === 'config') {
     return (
       <>
-        <h3>Have a blast with it</h3>
         <GameConfig
           handleSubmit={handleSubmit}
           handleChangeConfig={handleChangeConfig}
@@ -62,7 +52,7 @@ const Game = () => {
         />
       </>
     );
-  } else if (gameState === 'play') {
+  } else if (gameState === 'playing') {
     return (
       <>
         <Stopwatch
@@ -76,30 +66,13 @@ const Game = () => {
           checkGuess={checkGuess}
           guessWord={guessWord}
           correctWord={correctWord}
+          gameState={gameState}
         />
         <p>{correctWord}</p>
       </>
     );
-  } else if (gameState === 'over') {
-    return (
-      <div>
-        <h3>Game over.</h3>
-        <p>Your time was:</p>
-        <p>{Math.round(time / 1000)} seconds</p>
-      </div>
-    );
-  } else if (gameState === 'won') {
-    return (
-      <div>
-        <h3>Game over.</h3>
-        <p> You did it in:</p>
-        <p>
-          {guessWord.length} tries and time was: {Math.round(time / 1000)}
-          seconds
-        </p>
-      </div>
-    );
   }
 };
 
-export default Game;
+export default backupGame;
+ */

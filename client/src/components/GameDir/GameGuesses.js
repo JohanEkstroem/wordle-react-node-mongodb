@@ -1,5 +1,6 @@
-import WordList from './WordList';
+import GuessWordList from './GuessWordList';
 import { v4 as uuidv4 } from 'uuid';
+import WordInput from './GuessWordInput';
 
 const GameGuesses = ({
   setInputText,
@@ -7,6 +8,7 @@ const GameGuesses = ({
   inputText,
   guessWord,
   correctWord,
+  gameState,
 }) => {
   const handleOnClickGuess = () => {
     checkGuess(inputText);
@@ -14,18 +16,18 @@ const GameGuesses = ({
   };
 
   const guessWordElements = guessWord.map((word) => {
-    return <WordList key={uuidv4()} word={word} correctWord={correctWord} />;
+    return (
+      <GuessWordList key={uuidv4()} word={word} correctWord={correctWord} />
+    );
   });
   return (
     <div>
       <ul className="ul">{guessWordElements}</ul>
-      <input
-        className="wordGuessInput"
-        type="text"
-        onChange={(e) => setInputText(e.target.value)}
-        value={inputText}
-      />
-      <button onClick={handleOnClickGuess}>Guess</button>
+      {gameState === 'playing' ? (
+        <WordInput setInputText={setInputText} />
+      ) : (
+        <p>Higscoresubmit</p>
+      )}
     </div>
   );
 };

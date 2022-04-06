@@ -6,7 +6,6 @@
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  background-color: coral;
   height: 100vh;
 }
 /* .ul {
@@ -30,9 +29,8 @@
 }
 .spanContainer {
   width: 25px;
-  border: 2px solid black;
   margin: 3px 3px;
-  font-weight: 700;
+  font-weight: 500;
 }
 .correct {
   background-color: green;
