@@ -6,7 +6,6 @@
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  height: 100vh;
 }
 /* .ul {
   display: flex;
@@ -31,15 +30,16 @@
   width: 25px;
   margin: 3px 3px;
   font-weight: 500;
+  padding: 5px;
 }
 .correct {
-  background-color: green;
+  background-color: rgb(144, 188, 179);
 }
 .incorrect {
-  background-color: red;
+  background-color: rgb(233, 162, 173);
 }
 .misplaced {
-  background-color: yellow;
+  background-color: rgb(251, 225, 146);
 }
 /* 
 .App-header {

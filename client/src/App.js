@@ -9,6 +9,8 @@ function App() {
   const [guessWord, setGuessWord] = useState([]);
   const [time, setTime] = useState(0);
   const [start, setStart] = useState(false);
+  const [charsLength, setCharsLength] = useState(5);
+  const [isUnique, setIsUnique] = useState(false);
 
   useEffect(() => {
     let interval = null;
@@ -30,22 +32,25 @@ function App() {
     setCorrectWord(body.word);
     setGameState('playing');
     setStart(true);
+    setGuessWord([]);
     return;
   };
 
-  const checkGuess = (inputText) => {
-    setGuessWord([...guessWord, inputText]);
+  const checkGuess = (guessedWord) => {
+    setGuessWord([...guessWord, guessedWord]);
+
+    if (guessedWord == correctWord) {
+      setStart(false);
+      setGameState('won');
+    }
   };
-
-  /* 
-  const [charsLength, setCharsLength] = useState(5);
-  const [time, setTime] = useState(0);
-  const [start, setStart] = useState(false);
-  const [isLoading, setIsLoading] = useState(false); */
-
   return gameState === 'config' ? (
     <div className="App">
       <GameConfig
+        charsLength={charsLength}
+        setCharsLength={setCharsLength}
+        isUnique={isUnique}
+        setIsUnique={setIsUnique}
         setGameState={setGameState}
         handleSubmitConfig={handleSubmitConfig}
       />
@@ -59,8 +64,12 @@ function App() {
         time={time}
         checkGuess={checkGuess}
         guessWord={guessWord}
+        gameState={gameState}
+        setGameState={setGameState}
+        charsLength={charsLength}
       />
       <p>{correctWord}</p>
+      <p>{guessWord.length}</p>
     </div>
   );
 }

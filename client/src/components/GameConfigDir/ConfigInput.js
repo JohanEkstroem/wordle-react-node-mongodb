@@ -1,14 +1,15 @@
-import { useState } from 'react';
-
-function ConfigInput({ handleSubmitConfig }) {
-  const [charsLength, setCharsLength] = useState(5);
-  const [isUnique, setIsUnique] = useState(false);
-
+function ConfigInput({
+  handleSubmitConfig,
+  isUnique,
+  setIsUnique,
+  charsLength,
+  setCharsLength,
+}) {
   function handleSubmit(e) {
     e.preventDefault();
     handleSubmitConfig(isUnique, charsLength);
+    console.log(charsLength);
   }
-
   return (
     <>
       <h4>Configure Game</h4>

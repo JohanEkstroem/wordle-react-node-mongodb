@@ -8,7 +8,9 @@ mongoose.connect(
 // Create Model and Schema (en beskrivning av hur någonting ser ut)
 const Highscore = mongoose.model('highscores', {
   name: String,
-  score: Number,
+  guesses: Number,
+  time: Number,
+  length: Number,
 });
 
 export { Highscore };

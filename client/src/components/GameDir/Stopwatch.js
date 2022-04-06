@@ -1,5 +1,3 @@
-import React, { useEffect } from 'react';
-
 function Stopwatch({ time }) {
   return (
     <div className="">
