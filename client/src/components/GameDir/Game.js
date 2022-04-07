@@ -28,7 +28,7 @@ function Game({
       <>
         <Stopwatch time={time} />
         <ul>{guessWordElements}</ul>
-        <GuessWordInput checkGuess={checkGuess} />
+        <GuessWordInput checkGuess={checkGuess} correctWord={correctWord} />
       </>
     );
   } else if (gameState === 'won') {

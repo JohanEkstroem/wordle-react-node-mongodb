@@ -4,7 +4,6 @@ import fs from 'fs/promises';
 import { engine } from 'express-handlebars';
 import { fetchRandomWord } from './words.js';
 import { Highscore } from './database.js';
-import console from 'console';
 
 const app = express();
 const port = 5080;
