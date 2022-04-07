@@ -8,7 +8,6 @@ function ConfigInput({
   function handleSubmit(e) {
     e.preventDefault();
     handleSubmitConfig(isUnique, charsLength);
-    console.log(charsLength);
   }
   return (
     <>
@@ -18,7 +17,7 @@ function ConfigInput({
         <br />
         <select
           value={charsLength}
-          onChange={(e) => setCharsLength(e.target.value)}
+          onChange={(e) => setCharsLength(parseInt(e.target.value))}
         >
           <option value="4">4</option>
           <option value="5">5</option>
@@ -48,10 +47,3 @@ function ConfigInput({
 }
 
 export default ConfigInput;
-
-/* 
-This component takes users input (chars length) and then sets gameState to play
-<select value={charsLength} onChange={handleChangeConfig}>
-
-
-*/

@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 mongoose.connect(
-  'mongodb+srv://johanekstroem:l0sen0rd@cluster0.gh4wr.mongodb.net/wordle?retryWrites=true&w=majority',
+  'mongodb+srv://johanekstroem:l0sen0rd@cluster0.xhh42.mongodb.net/wordle?retryWrites=true&w=majority',
   () => console.log('Connected to DB')
 );
 
@@ -11,6 +11,8 @@ const Highscore = mongoose.model('highscores', {
   guesses: Number,
   time: Number,
   length: Number,
+  unique: Boolean,
+  date: String,
 });
 
 export { Highscore };

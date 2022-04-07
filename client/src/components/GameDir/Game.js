@@ -13,6 +13,7 @@ function Game({
   setGameState,
   setTime,
   charsLength,
+  isUnique,
 }) {
   const guessWordElements = guessWord.map((word) => {
     return (
@@ -42,6 +43,7 @@ function Game({
           guessWord={guessWord}
           setGameState={setGameState}
           charsLength={charsLength}
+          isUnique={isUnique}
         />
       </div>
     );

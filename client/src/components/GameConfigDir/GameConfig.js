@@ -25,14 +25,3 @@ const GameConfig = ({
 };
 
 export default GameConfig;
-
-/* 
-
- charsLength={charsLength}
-        setCharsLength={setCharsLength}
-        isUnique={isUnique}
-        setIsUnique={setIsUnique}
-        setGameState={setGameState}
-        handleSubmitConfig={handleSubmitConfig}
-
-*/

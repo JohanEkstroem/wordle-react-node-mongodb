@@ -1,16 +1,14 @@
+/* const object = {
+  guessWord,
+  correctWord,
+}; */
+import { v4 as uuidv4 } from 'uuid';
 const GuessWordList = ({ guessWord, correctWord }) => {
   let a = guessWord.toUpperCase().split('');
   let b = correctWord.toUpperCase().split('');
   let temp = [];
   let output = [];
   let copy = b.slice();
-  /*
-  This foor loop does four things: 
-  1. look for matches
-  2. pushes a match into output array and with right position
-  3. replaces the char in game word into null
-  4. pushes all matches into a temp array
-  */
 
   for (let i = 0; i < a.length; i++) {
     if (a[i] === copy[i]) {
@@ -33,13 +31,19 @@ const GuessWordList = ({ guessWord, correctWord }) => {
 
   const guessList = output.map((guess) => {
     return (
-      <div className="letterContainer">
-        <span className={`spanContainer ${guess.result}`}>{guess.letter}</span>
+      <div key={uuidv4()} className="letterContainer">
+        <span className={`spanContainer ${guess.result}`} key={uuidv4()}>
+          {guess.letter}
+        </span>
       </div>
     );
   });
-
-  return <li className="list">{guessList}</li>;
+  console.log(guessList);
+  return (
+    <li className="list" key={uuidv4()}>
+      {guessList}
+    </li>
+  );
 };
 
 export default GuessWordList;

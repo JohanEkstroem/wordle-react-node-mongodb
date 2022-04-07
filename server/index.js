@@ -20,14 +20,18 @@ app.get('/api/word/', async (req, res) => {
   const unique = req.query.unique === 'true';
   const wordLength = parseInt(req.query.length);
   const word = await fetchRandomWord(wordLength, unique);
-  res.json({ word });
+  res.status(200).json({ word });
 });
 
 app.get('/api/highscores', async (req, res) => {
-  const getHighscores = await Highscore.find();
-  const highscoresList = getHighscores.map((item) => ({
-    name: item.name,
-    score: item.score,
+  const highscores = await Highscore.find();
+  const highscoresList = highscores.map((entry) => ({
+    name: entry.name,
+    guesses: entry.guesses,
+    time: entry.time,
+    length: entry.length,
+    unique: entry.unique,
+    date: entry.date,
   }));
   res.render('home', { highscoresList });
 });
@@ -40,20 +44,19 @@ app.get('/api/info', async (req, res) => {
 
 //POST request
 app.post('/api/highscores', async (req, res) => {
-  const postHighscores = new Highscore(req.body);
+  const highScoreEntry = {
+    name: req.body.name,
+    guesses: req.body.guesses,
+    time: req.body.time,
+    length: req.body.length,
+    unique: req.body.unique,
+    date: req.body.unique,
+  };
+
+  const postHighscores = new Highscore(highScoreEntry);
   await postHighscores.save();
-  res.json(postHighscores, 201);
+  res.status(201).json(req.body);
 });
 
 app.use('/api/info', express.static('./static'));
 app.listen(port, () => console.log(`Listening to port ${port}`));
-
-/* 
-1. In home.handlebars, render highscore from mongodb atlas
-2. 
-  A: Fetch everything from mongodb
-  B: Send data to home.handlebars
-  C: Loop through data and render with ul/li
-  D: Style the shit out of it until perfection
-
-*/

@@ -5,6 +5,7 @@ const SubmitHighscore = ({
   guessWord,
   setGameState,
   charsLength,
+  isUnique,
 }) => {
   const [inputName, setInputName] = useState('');
 
@@ -17,6 +18,8 @@ const SubmitHighscore = ({
         guesses: guessWord.length,
         time: time,
         length: charsLength,
+        unique: isUnique,
+        date: new Date(),
       }),
     };
     const response = await fetch(
@@ -44,9 +47,3 @@ const SubmitHighscore = ({
 };
 
 export default SubmitHighscore;
-
-/* 
-name
-guesses
-time
-length */

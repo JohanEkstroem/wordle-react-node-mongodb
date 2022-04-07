@@ -67,6 +67,7 @@ function App() {
         gameState={gameState}
         setGameState={setGameState}
         charsLength={charsLength}
+        isUnique={isUnique}
       />
       <p>{correctWord}</p>
       <p>{guessWord.length}</p>
