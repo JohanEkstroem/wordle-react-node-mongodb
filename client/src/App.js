@@ -1,7 +1,8 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import Game from './components/GameDir/Game';
-import GameConfig from './components/GameConfigDir/GameConfig';
+import Game from './components/game/Game';
+import GameConfig from './components/gameConfig/GameConfig';
+import compareWords from './compare';
 
 function App() {
   const [gameState, setGameState] = useState('config');
@@ -37,13 +38,14 @@ function App() {
   };
 
   const checkGuess = (guessedWord) => {
-    setGuessWord([...guessWord, guessedWord]);
+    setGuessWord([...guessWord, compareWords(guessedWord, correctWord)]);
 
     if (guessedWord == correctWord) {
       setStart(false);
       setGameState('won');
     }
   };
+
   return gameState === 'config' ? (
     <div className="App">
       <GameConfig

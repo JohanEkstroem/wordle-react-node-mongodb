@@ -1,8 +1,7 @@
 import Stopwatch from './Stopwatch';
 import GuessWordInput from './GuessWordInput';
-import GuessWordList from './GuessWordList';
-import { v4 as uuidv4 } from 'uuid';
 import SubmitHighscore from './SubmitHighscore';
+import RenderGuessedWords from './RenderGuessedWords';
 
 function Game({
   correctWord,
@@ -15,20 +14,11 @@ function Game({
   charsLength,
   isUnique,
 }) {
-  const guessWordElements = guessWord.map((word) => {
-    return (
-      <GuessWordList
-        key={uuidv4()}
-        guessWord={word}
-        correctWord={correctWord}
-      />
-    );
-  });
   if (gameState === 'playing') {
     return (
       <>
         <Stopwatch time={time} />
-        <ul>{guessWordElements}</ul>
+        <RenderGuessedWords guessWord={guessWord} />
         <GuessWordInput checkGuess={checkGuess} correctWord={correctWord} />
       </>
     );
@@ -36,7 +26,6 @@ function Game({
     return (
       <div>
         <Stopwatch time={time} />
-        <ul>{guessWordElements}</ul>
         <SubmitHighscore
           time={time}
           setTime={setTime}
