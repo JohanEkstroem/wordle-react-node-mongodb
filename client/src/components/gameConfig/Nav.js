@@ -1,9 +1,9 @@
 function Nav() {
   return (
     <nav>
-      <a href="#">Game</a>
-      <a href="#">Highscore</a>
-      <a href="#">Info</a>
+      <a href="/">Game</a>
+      <a href="/api/highscores">Highscore</a>
+      <a href="/api/info">Info</a>
     </nav>
   );
 }

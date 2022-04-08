@@ -1,9 +1,13 @@
+import path from 'path';
+import { fileURLToPath } from 'url';
 import express from 'express';
 import cors from 'cors';
 import fs from 'fs/promises';
 import { engine } from 'express-handlebars';
 import { fetchRandomWord } from './words.js';
 import { Highscore } from './database.js';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const port = 5080;
@@ -14,8 +18,13 @@ app.set('views', './server/templates');
 app.use(express.json());
 app.use(cors());
 
+app.use(express.static(`${path.join(__dirname, '/public')}`));
 //GET request
+app.get('/', (req, res) => {
+  res.send('hello');
+});
 
+app.get('/game', (req, res) => {});
 app.get('/api/word/', async (req, res) => {
   const unique = req.query.unique === 'true';
   const wordLength = parseInt(req.query.length);
@@ -58,5 +67,26 @@ app.post('/api/highscores', async (req, res) => {
   res.status(201).json(req.body);
 });
 
-app.use('/api/info', express.static('./static'));
+//app.use('/api/info', express.static('./static'));
+
 app.listen(port, () => console.log(`Listening to port ${port}`));
+
+//"build": "cross-env BUILD_PATH='../server/public/' react-scripts build",
+/* 
+router.get('/highscores', async (req, res) => {
+  console.info('yes');
+  const scores = await Highscore.find();
+  const result = sortTopTen(scores);
+  res.render('highscore', {
+    highscore: highscoreElem(result.topTen),
+  });
+});
+
+*/
+
+/* 
+npm install cross-env
+add script to package.json in client
+add in .gitignore static
+
+*/
