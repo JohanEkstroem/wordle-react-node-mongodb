@@ -18,13 +18,13 @@ app.set('views', './server/templates');
 app.use(express.json());
 app.use(cors());
 
-app.use(express.static(`${path.join(__dirname, '/public')}`));
+app.use(express.static(`${path.join(__dirname, './public')}`));
+app.use(express.static(`${path.join(__dirname, './static')}`));
 //GET request
 app.get('/', (req, res) => {
   res.send('hello');
 });
 
-app.get('/game', (req, res) => {});
 app.get('/api/word/', async (req, res) => {
   const unique = req.query.unique === 'true';
   const wordLength = parseInt(req.query.length);
@@ -68,7 +68,5 @@ app.post('/api/highscores', async (req, res) => {
   await postHighscores.save();
   res.status(201).json(req.body);
 });
-
-//app.use('/api/info', express.static('./static'));
 
 app.listen(port, () => console.log(`Listening to port ${port}`));
