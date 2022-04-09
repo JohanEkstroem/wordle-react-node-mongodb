@@ -63,7 +63,6 @@ app.post('/api/highscores', async (req, res) => {
     unique: req.body.unique,
     date: req.body.date,
   };
-
   const postHighscores = new Highscore(highScoreEntry);
   await postHighscores.save();
   res.status(201).json(req.body);

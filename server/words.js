@@ -8,13 +8,10 @@ export async function fetchRandomWord(wordLength, unique) {
     const words = await Object.keys(body).filter(
       (word) => word.length == wordLength
     );
-
     const randomIndex = Math.floor(Math.random() * words.length);
-
     const uniqueChars = words.filter(
       (e) => [...new Set(e.split(''))].join('') == e
     );
-
     if (unique) {
       return await uniqueChars[
         Math.floor(Math.random() * uniqueChars.length)
@@ -26,4 +23,3 @@ export async function fetchRandomWord(wordLength, unique) {
     return;
   }
 }
-// Get a word and be ready to send it to the client.

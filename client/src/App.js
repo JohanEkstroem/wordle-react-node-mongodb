@@ -71,6 +71,7 @@ function App() {
         charsLength={charsLength}
         isUnique={isUnique}
       />
+      <p>{correctWord}</p>
     </div>
   );
 }
