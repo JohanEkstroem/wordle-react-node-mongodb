@@ -40,7 +40,7 @@ function App() {
   const checkGuess = (guessedWord) => {
     setGuessWord([...guessWord, compareWords(guessedWord, correctWord)]);
 
-    if (guessedWord == correctWord) {
+    if (guessedWord === correctWord) {
       setStart(false);
       setGameState('won');
     }
@@ -71,7 +71,6 @@ function App() {
         charsLength={charsLength}
         isUnique={isUnique}
       />
-      <p>{correctWord}</p>
     </div>
   );
 }

@@ -99,3 +99,15 @@ button {
   background-color: rgb(94, 94, 245);
   border-radius: 5px;
 }
+
+.list {
+  display: flex;
+  justify-content: center;
+}
+.border {
+  border: 3px solid grey;
+}
+
+.li {
+  list-style-type: none;
+}

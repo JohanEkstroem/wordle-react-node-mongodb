@@ -9,7 +9,8 @@ const SubmitHighscore = ({
 }) => {
   const [inputName, setInputName] = useState('');
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -26,7 +27,6 @@ const SubmitHighscore = ({
       'http://localhost:5080/api/highscores',
       requestOptions
     );
-    const data = await response.json();
     setGameState('config');
     setTime(0);
   };
