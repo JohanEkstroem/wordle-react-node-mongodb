@@ -1,17 +1,29 @@
 <ul>{{#each highscoresList}}
     <li>
-      <h4>Name:</h4>
-      <span>{{this.name}}</span>
-      <h4>Guesses:</h4>
-      <span>{{this.guesses}}</span>
-      <h4>Time:</h4>
-      <span>{{this.time}}</span>
-      <h4>Length</h4>
-      <span>{{this.length}}</span>
-      <h4>Unique:</h4>
-      <span>{{this.unique}}</span>
-      <h4>Date:</h4>
-      <span>{{this.date}}</span>
+      <div>
+        Name:
+        {{this.name}}
+      </div>
+      <div>
+        Time:
+        {{this.timeMinutes}}:{{this.timeSeconds}}
+      </div>
+      <div>
+        Guesses:
+        {{this.guesses}}
+      </div>
+      <div>
+        Length:
+        {{this.length}}
+      </div>
+      <div>
+        Unique:
+        {{this.unique}}
+      </div>
+      <div>
+        Date:
+        {{this.date}}
+      </div>
       <div class='border'>--------</div>
     </li>
   {{/each}}

@@ -33,11 +33,13 @@ app.get('/api/word/', async (req, res) => {
 });
 
 app.get('/api/highscores', async (req, res) => {
-  const highscores = await Highscore.find();
+  let highscores = await Highscore.find();
+  highscores = highscores.sort((a, b) => a.time - b.time);
   const highscoresList = highscores.map((entry) => ({
     name: entry.name,
     guesses: entry.guesses,
-    time: entry.time,
+    timeSeconds: ('0' + Math.floor((entry.time / 1000) % 60)).slice(-2),
+    timeMinutes: ('0' + Math.floor((entry.time / 60000) % 60)).slice(-2),
     length: entry.length,
     unique: entry.unique,
     date: entry.date,
@@ -59,7 +61,7 @@ app.post('/api/highscores', async (req, res) => {
     time: req.body.time,
     length: req.body.length,
     unique: req.body.unique,
-    date: req.body.unique,
+    date: req.body.date,
   };
 
   const postHighscores = new Highscore(highScoreEntry);
@@ -70,23 +72,3 @@ app.post('/api/highscores', async (req, res) => {
 //app.use('/api/info', express.static('./static'));
 
 app.listen(port, () => console.log(`Listening to port ${port}`));
-
-//"build": "cross-env BUILD_PATH='../server/public/' react-scripts build",
-/* 
-router.get('/highscores', async (req, res) => {
-  console.info('yes');
-  const scores = await Highscore.find();
-  const result = sortTopTen(scores);
-  res.render('highscore', {
-    highscore: highscoreElem(result.topTen),
-  });
-});
-
-*/
-
-/* 
-npm install cross-env
-add script to package.json in client
-add in .gitignore static
-
-*/
