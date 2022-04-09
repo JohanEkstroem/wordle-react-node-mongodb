@@ -71,16 +71,8 @@ function App() {
         charsLength={charsLength}
         isUnique={isUnique}
       />
-      <p>{correctWord}</p>
-      <p>{guessWord.length}</p>
     </div>
   );
 }
 
 export default App;
-/* 
-Todo:
-1. let user choose length of word
-2. let user have possibility to choose unique chars in word
-3. Show a stopwatch in game mode
-*/

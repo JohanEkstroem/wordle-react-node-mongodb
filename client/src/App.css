@@ -7,31 +7,10 @@
   flex-direction: column;
   text-align: center;
 }
-/* .ul {
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
-  height: 20vh;
-  align-items: center;
-} */
 .wordGuessInput {
   text-transform: uppercase;
 }
-.list {
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  width: 150px;
-}
-.letterContainer {
-  display: flex;
-}
-.spanContainer {
-  width: 25px;
-  margin: 3px 3px;
-  font-weight: 500;
-  padding: 5px;
-}
+
 .correct {
   background-color: rgb(144, 188, 179);
 }
@@ -41,14 +20,34 @@
 .misplaced {
   background-color: rgb(251, 225, 146);
 }
-/* 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+.listContainer {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} */
+  flex-direction: row;
+  min-height: 125px;
+}
+.wordContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 200px;
+  margin: auto;
+}
+
+.letter {
+  font-size: larger;
+  padding: 3px;
+  margin: 3px;
+  width: 20%;
+  max-width: 25px;
+  border-radius: 3px;
+  height: 25px;
+}
+
+.empty {
+  width: 10px;
+  background-color: rgb(185, 185, 185);
+  width: 20%;
+}

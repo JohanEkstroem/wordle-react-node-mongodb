@@ -18,7 +18,7 @@ function Game({
     return (
       <>
         <Stopwatch time={time} />
-        <RenderGuessedWords guessWord={guessWord} />
+        <RenderGuessedWords guessWord={guessWord} correctWord={correctWord} />
         <GuessWordInput checkGuess={checkGuess} correctWord={correctWord} />
       </>
     );

@@ -33,6 +33,7 @@ const SubmitHighscore = ({
   return (
     <>
       <h1>You Won!</h1>
+      <h4>You did it in {guessWord.length} guesses</h4>
       <form onSubmit={handleSubmit}>
         <input
           type="text"

@@ -21,7 +21,6 @@ const GuessWordInput = ({ checkGuess, correctWord }) => {
   };
   return (
     <div>
-      <h3>Word is {correctWord.length} characters long </h3>
       <input
         className="wordGuessInput"
         placeholder="Enter guess"
@@ -34,10 +33,3 @@ const GuessWordInput = ({ checkGuess, correctWord }) => {
 };
 
 export default GuessWordInput;
-
-/* 
-1. User should only be able to input as many characters as correctWord.
-  A. Make sure component receives correctword from App component
-  B. Compare Length and allow input if length matches
-  C. Possibly add regex and only allow [A-Z]
-*/
