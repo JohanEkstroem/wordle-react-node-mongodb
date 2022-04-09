@@ -6,7 +6,7 @@ const RenderGuessedWords = ({ guessWord, correctWord }) => {
   });
 
   const corr = Array.from(correctWord);
-  const emptyBoxes = corr.map((item, idx) => {
+  const emptyBoxes = corr.map((idx) => {
     return <span key={idx} className="empty letter"></span>;
   });
 

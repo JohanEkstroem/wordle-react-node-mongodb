@@ -36,6 +36,7 @@ const SubmitHighscore = ({
       <h4>You did it in {guessWord.length} guesses</h4>
       <form onSubmit={handleSubmit}>
         <input
+          className="wordGuessInput"
           type="text"
           value={inputName}
           onChange={(e) => setInputName(e.target.value)}

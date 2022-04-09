@@ -1,11 +1,24 @@
 * {
   padding: 0;
 }
+html {
+  background-image: conic-gradient(grey, black);
+  border-radius: 50%;
+  height: 100vh;
+  padding: 25px;
+}
 .App {
   display: flex;
   justify-content: center;
   flex-direction: column;
   text-align: center;
+  background-color: rgba(200, 200, 200, 0.9);
+  box-shadow: 10px 10px 5px grey;
+  border-radius: 10px;
+  width: 60vw;
+  max-width: 500px;
+  margin: auto;
+  padding: 25px;
 }
 .wordGuessInput {
   text-transform: uppercase;
@@ -44,10 +57,45 @@
   max-width: 25px;
   border-radius: 3px;
   height: 25px;
+  box-shadow: 4px 4px 5px grey;
 }
 
 .empty {
   width: 10px;
-  background-color: rgb(185, 185, 185);
+  background-color: rgb(235, 235, 235);
   width: 20%;
+}
+
+.linkContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.linkContainer > a {
+  color: black;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.linkContainer > a:hover {
+  font-weight: 700;
+}
+
+.wordGuessInput {
+  padding: 5px;
+  border-radius: 5px;
+  margin: 5px;
+}
+button {
+  padding: 6px;
+  margin: 0 5px;
+  color: white;
+  font-weight: 700;
+  background-color: rgb(94, 94, 245);
+  border-radius: 5px;
 }
