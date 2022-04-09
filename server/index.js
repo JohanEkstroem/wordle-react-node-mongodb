@@ -18,8 +18,9 @@ app.set('views', './server/templates');
 app.use(express.json());
 app.use(cors());
 
-app.use(express.static(`${path.join(__dirname, './public')}`));
-app.use(express.static(`${path.join(__dirname, './static')}`));
+app.use(express.static(`${path.join(__dirname, '/public')}`));
+app.use(express.static(`${path.join(__dirname, '/static')}`));
+app.use(express.static(`${path.join(__dirname, '/public/static')}`));
 //GET request
 app.get('/', (req, res) => {
   res.send('hello');
@@ -46,7 +47,6 @@ app.get('/api/highscores', async (req, res) => {
   }));
   res.render('home', { highscoresList });
 });
-
 app.get('/api/info', async (req, res) => {
   const fileBuf = await fs.readFile('./server/static/static.html');
   res.type('html');
